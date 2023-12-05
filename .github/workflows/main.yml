@@ -3,9 +3,13 @@ name: Manual trigger
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: "Who to greet"
-        default: "World"
+      action:
+        description: "Choose which action to perform on the cloudformation template"
+        default: "create"
+        options:
+        - create
+        - update
+        - delete
 
 jobs:
     hello:
@@ -13,4 +17,4 @@ jobs:
 
         steps:
         - name: Hello Step
-          run: echo "Hello ${{ github.event.inputs.name }}"
+          run: echo "Hello ${{ github.event.inputs.action }}"
