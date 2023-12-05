@@ -18,4 +18,15 @@ jobs:
 
         steps:
         - name: Hello Step
+          if: ${{github.event.inputs.action == 'create'}}
+          run: echo "Hello ${{ github.event.inputs.action }}"
+          
+        steps:
+        - name: Hello Step1
+          if: ${{github.event.inputs.action == 'delete'}}
+          run: echo "Hello ${{ github.event.inputs.action }}"
+
+        steps:
+        - name: Hello Step2
+          if: ${{github.event.inputs.action == 'update'}}
           run: echo "Hello ${{ github.event.inputs.action }}"
