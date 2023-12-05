@@ -1,4 +1,4 @@
-name: Deploy Transit Gateway Cloudformation Template.
+name: Actions on Transit Gateway Cloudformation Template.
 
 on:
   workflow_dispatch:
@@ -16,14 +16,17 @@ jobs:
     transitgateway:
         runs-on: ubuntu-latest
         steps:
-        - name: Hello Step
+        - name: Create Transit Gateway Cloudformation Template.
           if: ${{github.event.inputs.action == 'create'}}
-          run: echo "Hello ${{ github.event.inputs.action }}"
+          run: |
+            echo "Hello ${{ github.event.inputs.action }}"
           
-        - name: Hello Step1
+        - name: Delete Transit Gateway Cloudformation Template.
           if: ${{github.event.inputs.action == 'delete'}}
-          run: echo "Hello ${{ github.event.inputs.action }}"
+          run: |
+            echo "Hello ${{ github.event.inputs.action }}"
 
-        - name: Hello Step2
+        - name: Update Transit Gateway Cloudformation Template.
           if: ${{github.event.inputs.action == 'update'}}
-          run: echo "Hello ${{ github.event.inputs.action }}"
+          run: |
+            echo "Hello ${{ github.event.inputs.action }}"
