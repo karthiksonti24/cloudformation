@@ -5,6 +5,7 @@ on:
     inputs:
       action:
         description: "Choose which action to perform on the cloudformation template"
+        type: choice
         default: "create"
         options:
         - create
