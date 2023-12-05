@@ -1,4 +1,4 @@
-name: Manual trigger
+name: Deploy Transit Gateway Cloudformation Template.
 
 on:
   workflow_dispatch:
@@ -13,9 +13,8 @@ on:
         - delete
 
 jobs:
-    hello:
+    transitgateway:
         runs-on: ubuntu-latest
-
         steps:
         - name: Hello Step
           if: ${{github.event.inputs.action == 'create'}}
