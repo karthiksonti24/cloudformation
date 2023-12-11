@@ -1,0 +1,32 @@
+name: Test.
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Choose which action to perform on the cloudformation template"
+        type: choice
+        default: "create"
+        options:
+        - create
+        - updatea
+        - delete
+
+jobs:
+    transitgateway:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Create Transit Gateway Cloudformation Template.
+          if: ${{github.event.inputs.action == 'create'}}
+          run: |
+            echo "Hello ${{ github.event.inputs.action }}"
+          
+        - name: Delete Transit Gateway Cloudformation Template.
+          if: ${{github.event.inputs.action == 'delete'}}
+          run: |
+            echo "Hello ${{ github.event.inputs.action }}"
+
+        - name: Update Transit Gateway Cloudformation Template.
+          if: ${{github.event.inputs.action == 'update'}}
+          run: |
+            echo "Hello ${{ github.event.inputs.action }}"
